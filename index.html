@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Sixth Player: Road to State. Coach the Mirza Titans from the bottom of Conference 1 toward a Division 1 basketball championship.">
+  <meta name="theme-color" content="#101820">
+  <title>The Sixth Player: Road to State</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e07a3d'/%3E%3Cpath d='M2 32h60M32 2v60M12 12c10 8 10 32 0 40M52 12c-10 8-10 32 0 40' fill='none' stroke='%231a120c' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <main id="main" tabindex="-1">
+    <section id="title-view" class="title-screen" aria-labelledby="game-title">
+      <div class="title-layout">
+        <div class="title-copy">
+          <div class="wordmark">
+            <svg class="ball" viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="30" fill="#e07a3d"></circle>
+              <path d="M2 32h60M32 2v60M12 12c10 8 10 32 0 40M52 12c-10 8-10 32 0 40" fill="none" stroke="#1a120c" stroke-width="2.5"></path>
+            </svg>
+            <div>
+              <p class="kicker">Division 1 Boys Basketball</p>
+              <h1 id="game-title"><span class="title-line">The Sixth Player</span> <span class="title-sub">Road to State</span></h1>
+            </div>
+          </div>
+          <div class="story">
+            <p>The Mirza High School Titans were once a promising program. Another losing season put them last in Conference 1. Morale is low, the roster is short, and the students have stopped coming.</p>
+            <p>You are the new coach. Build a roster, a culture, and a gym that can climb from the bottom of Conference 1 to a state championship. All-state honors and a next level are possible for your players. Another quiet spring is possible too.</p>
+            <p>In this gym the crowd is the sixth player. At Mirza, that player has left the building.</p>
+          </div>
+          <ol class="steps">
+            <li>Put your name on the clipboard and open the season office.</li>
+            <li>Learn the roster, Conference 1, and the program before tryouts.</li>
+            <li>Inside the office, the menu or keys 1 through 6 move between the desk, roster, conferences, schedule, program health, and the full rules.</li>
+          </ol>
+          <details class="rules">
+            <summary>Season rules on this desk</summary>
+            <ul>
+              <li>The record starts at 0–0. Conference rank is a preseason projection, not a result.</li>
+              <li>Roster overall and program strength are different numbers. Program strength includes depth and the building.</li>
+              <li>The academic line is 65. A full varsity is 12 players. Mirza does not have 12.</li>
+              <li>School spirit is the crowd. Tryouts, practices, and games are not on this desk yet.</li>
+              <li>The season is saved in this browser and does not need a connection.</li>
+            </ul>
+          </details>
+        </div>
+        <form id="start-form" class="clipboard">
+          <h2>Coach's clipboard</h2>
+          <p>Preseason, 2026–2027. Mirza High School Titans. Conference 1.</p>
+          <p id="saved-blurb" hidden></p>
+          <div id="replace-warning" hidden>
+            <p class="warning-copy">A season is already saved in this browser. Replacing it clears the coach's name and sets school spirit back to 18. The league rosters stay the same.</p>
+          </div>
+          <div id="name-field">
+            <label for="coach-name">Name on the clipboard</label>
+            <input id="coach-name" name="coach" maxlength="24" autocomplete="name" spellcheck="false" aria-required="true" aria-describedby="name-error">
+            <p id="name-error" class="form-error" role="alert" hidden></p>
+          </div>
+          <div class="actions">
+            <button type="submit" class="btn btn-primary" id="start-btn">Open the season office</button>
+            <button type="button" class="btn btn-secondary" id="continue-btn" hidden>Return to the office</button>
+            <button type="button" class="btn btn-text" id="restart-btn" hidden>Start a new season</button>
+            <button type="button" class="btn btn-text" id="keep-btn" hidden>Keep the saved season</button>
+          </div>
+          <p class="fine">Saved in this browser. No internet connection is required.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="app-view" class="app-shell" hidden>
+      <header class="topbar">
+        <div class="brand">
+          <span class="monogram" aria-hidden="true">MT</span>
+          <div>
+            <p class="brand-school">Mirza Titans</p>
+            <p class="brand-division">Division 1 · Boys Basketball</p>
+          </div>
+        </div>
+        <div class="top-meta">
+          <p id="top-coach"></p>
+          <p id="top-phase"></p>
+        </div>
+      </header>
+      <p id="save-note" class="save-note" hidden></p>
+      <div class="workspace">
+        <nav class="sidenav" aria-label="Season office">
+          <button type="button" data-screen="dashboard" aria-keyshortcuts="1"><span>Dashboard</span><kbd>1</kbd></button>
+          <button type="button" data-screen="roster" aria-keyshortcuts="2"><span>Roster</span><kbd>2</kbd></button>
+          <button type="button" data-screen="conference" aria-keyshortcuts="3"><span>Conferences</span><kbd>3</kbd></button>
+          <button type="button" data-screen="schedule" aria-keyshortcuts="4"><span>Schedule</span><kbd>4</kbd></button>
+          <button type="button" data-screen="program" aria-keyshortcuts="5"><span>Program</span><kbd>5</kbd></button>
+          <button type="button" data-screen="guide" aria-keyshortcuts="6"><span>Rules</span><kbd>6</kbd></button>
+        </nav>
+        <div id="screen-root"></div>
+      </div>
+      <p class="app-foot">The Sixth Player: Road to State · Preseason office · Runs in this browser, no connection required.</p>
+    </section>
+  </main>
+  <p id="live" class="visually-hidden" aria-live="polite"></p>
+  <noscript>
+    <p class="boot-error">The season office needs JavaScript. It does not need an internet connection.</p>
+  </noscript>
+
+  <!--
+    Script order is the load order. Later files call helpers defined above.
+    Classic scripts, not modules, so the page opens from a folder with no server.
+  -->
+  <script src="js/util.js"></script>
+  <script src="js/names.js"></script>
+  <script src="js/schools.js"></script>
+  <script src="js/roster.js"></script>
+  <script src="js/world.js"></script>
+  <script src="js/career.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/screen-dashboard.js"></script>
+  <script src="js/screen-roster.js"></script>
+  <script src="js/screen-conference.js"></script>
+  <script src="js/screen-schedule.js"></script>
+  <script src="js/screen-program.js"></script>
+  <script src="js/screen-guide.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
